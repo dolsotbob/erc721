@@ -20,6 +20,8 @@ export const checkNetworkInfo = async () => {
     privateKey : .env 파일에 설정된 가나슈 계정의 프라이빗 키
 */
 
+// (나) npm run test:ethers 실행했을 때 뒷 부분 오래 걸리는 이유는 뭔가 꼬였다는 것 > 테스트 여러 번 해야 하는 이유 
+
 export const getSigner = () => {
   // Todo: privateKey를 이용하여 Wallet 인스턴스를 리턴합니다. - new ethers.Wallet(프라이빗 키, provider)
   return new ethers.Wallet(privateKey, provider);
@@ -28,6 +30,7 @@ export const getSigner = () => {
 export const getContract = () => {
   // Todo: DataType Contract 인스턴스를 리턴합니다. - new ethers.Contract(컨트랙트 주소, ABI, signer)
   // 이 후에 구현하는 컨트랙트 호출은 구현한 getContract를 사용합니다.
+  // (나) abi는 처음 new로 인스턴스 만들 때만 필요 
   return new ethers.Contract(contractAddress, abi, getSigner());
 };
 
