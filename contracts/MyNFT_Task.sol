@@ -1,1 +1,1 @@
-//
+contract MyNFT {}
